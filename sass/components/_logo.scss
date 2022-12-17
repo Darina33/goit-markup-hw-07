@@ -1,0 +1,12 @@
+.logo {
+    display: inherit;
+
+    color: var(--black);
+    font-family: Raleway, sans-serif;
+    @include font(26, 700, 31, 0.03);
+    text-decoration: none;
+
+    &__color {
+        color: var(--accent-color);
+    }
+}

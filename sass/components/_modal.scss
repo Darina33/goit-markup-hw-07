@@ -1,0 +1,218 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    &.is-hidden .modal {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+.modal {
+    padding: 40px;
+    min-height: 581px;
+    min-width: 528px;
+
+    border-radius: 4px;
+    background-color: #fff;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &__btn {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 30px;
+        height: 30px;
+        background: var(--white-color);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        @extend %flex-align;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+        &__btn:hover,
+        &__btn:focus {
+        fill: var(--accent-color);
+    }
+
+        &__icon {
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+
+/* Form */
+
+.form {
+    width: 448px;
+
+    &__text {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: var(--title-text-color);
+        @include font(20, 700, 23, 0.03);
+        text-align: center;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        @include font(12, 400, 14, 0.01);
+    }
+
+    &__field:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    &__label {
+            margin-bottom: 4px;
+        }
+
+    &__container {
+            position: relative;
+        }
+
+    &__input {
+        width: 100%;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-left: 42px;
+        border: 1px solid rgba(33, 33, 33, 0.2);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:focus,
+        &:hover {
+        border: 1px solid var(--accent-color);
+        outline: transparent;
+    }
+}
+
+    &__icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+            .form__input:focus~&,
+            .form__input:hover~& {
+                fill: var(--accent-color);
+            }
+        }
+
+    &__comment {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    height: 120px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus,
+    &:hover {
+        border: 1px solid var(--accent-color);
+        outline: transparent;
+    }
+}
+
+     &__btn {
+            color: var(--white-color);
+            @include font(16, 700, 30, 0.06);
+            @extend %flex-align;
+            text-align: center;
+    
+            background: var(--accent-color);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            border: none;
+    
+            min-width: 200px;
+            padding: 10px 52px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+            &:hover,
+            &:focus {
+                background-color: var(--button-focus);
+            }
+        }
+}
+
+.modal-checkbox {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--title-text-color);
+        border-radius: 2px;
+        margin-right: 8px;
+        @extend %flex-align;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    &__icon svg {
+        fill: transparent;
+    }
+
+    &:checked+label>span {
+        border: none;
+        background-color: var(--accent-color);
+    }
+
+    &:checked+label>span svg {
+        fill: var(--white-color);
+    }
+
+    &__policy-link {
+    text-decoration-line: underline;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+}
+
+label.checkbox__lable {
+    @extend %flex-align;
+    justify-content: center;
+}
